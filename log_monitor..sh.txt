@@ -1,0 +1,9 @@
+#!/bin/bash
+log_file="/var/log/syslog"
+alert_file="/tmp/log_alerts.txt"
+grep -i "error" "$log_file" > "$alert_file"
+if [ -s "$alert_file" ]; then
+  echo "Errors found! See $alert_file for details."
+else
+  echo "No critical errors found."
+fi

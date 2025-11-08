@@ -1,0 +1,10 @@
+#!/bin/bash
+backup_src="/home/$USER/Documents"
+backup_dest="/home/$USER/Backups/backup_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$backup_dest"
+cp -r "$backup_src" "$backup_dest"
+if [ $? -eq 0 ]; then
+  echo "Backup completed successfully at $(date)"
+else
+  echo "Backup failed at $(date)"
+fi

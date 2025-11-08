@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Updating system packages..."
+sudo apt update -y && sudo apt upgrade -y
+sudo apt autoremove -y && sudo apt autoclean -y
+if [ $? -eq 0 ]; then
+  echo "System updated and cleaned successfully at $(date)"
+else
+  echo "Update or cleanup failed at $(date)"
+fi

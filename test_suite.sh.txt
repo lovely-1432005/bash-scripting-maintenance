@@ -1,0 +1,6 @@
+#!/bin/bash
+log_file="/home/$USER/maintenance_log_$(date +%Y%m%d).log"
+exec > >(tee -a "$log_file") 2>&1
+echo "Starting maintenance test run at $(date)"
+bash scripts/maintenance_suite.sh
+echo "Maintenance run completed at $(date)"
